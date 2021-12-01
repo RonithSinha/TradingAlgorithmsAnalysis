@@ -1,0 +1,18 @@
+﻿Algorithm for Stochastic RSI :
+
+1. Get the details of the previous record.
+	This includes:
+	- Previous record's [Price,upEWM (EWM=Exponential Weighed Moving Average),downEWM,RSI values for the past 13 days(14th value is going to be current value),Stochastic RSI values for the past 2 days(3rd value is going to be the current value), FastK values for the past 2 days(3rd value is going to be the current value)]
+2. Calculate current Stochastic RSI.
+	- Calculate the following:
+		-change,up,down,rs,rsi,Stochastic RSI(requires the latest 14 RSI values(including the current period)) ,FastK(requires the latest 3 Stochastic RSI values) ,FastD(requires the latest 3 FastK values).
+3. We now save the data calculated for this period in order to calculate the indicators for the next period.
+	We save the following details for the next period:
+	- current close price
+	- current upEWM 
+	- current downEWM
+	- RSI for the latest 13 periods(current RSI along with the past 12 periods' RSI)
+	- Stochastic RSI for the latest 2 periods(current Stochastic RSI along with the last 1 period RSI)
+	- FastK for the latest 2 periods(current FastK along with the last 1 period FastK)
+
+Note: In this approach, we are never calculating record for the 1st period. This is because for every stock, the initial record will be pre-calculated and stored in the database by us. Its a manual task but the best possible approach. Will take about an hour or so for you to put the initial records in the Dynamo DB.
