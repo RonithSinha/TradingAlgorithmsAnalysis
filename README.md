@@ -1,2 +1,3 @@
 # Trading Algorithms Analysis
-An analysis of 3 trading algorithms on Nifty 50 stocks
+
+We analyze 3 trading algorithms on Nifty 50 stocks on the basis of various parameters to select the algorithm that gives the best results.
